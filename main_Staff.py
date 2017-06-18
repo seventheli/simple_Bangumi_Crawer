@@ -23,7 +23,8 @@ total_href = set()
 for each in items:
     total_href.add('http://bangumi.tv' + each)
 print('total %s found' % str(len(total_href)))
-staff = {'导演','人物设定 ','作画监督','脚本','系列构成','人物原案','音响监督','动画制作','音乐','机械设定'}
+with open('staff input.txt', 'r', encoding='utf8') as f:
+    staff = f.read().split('、')
 crawler_2 = crawler_for_names(urls=total_href, concurrency=running_pages, staff=staff)
 items = crawler_2.run()
 group = []
